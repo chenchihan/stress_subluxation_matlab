@@ -1,0 +1,20 @@
+% MP1_T=力量值的時間
+% MP1_F=力量值
+function [F_max,F_75,F_50,F_25]=F_S(MP1_T,MP1_F)
+[F_max,ind]=max(MP1_F);
+F_max=roundn(F_max,-2);
+MP1_F=MP1_F(1:ind);
+T_Max=MP1_T(ind);
+[F_75,ind]=min(abs(MP1_F-F_max*0.75));
+F_75=MP1_F(ind);
+F_75=roundn(F_75,-2);
+T_75=MP1_T(ind);
+[F_50,ind]=min(abs(MP1_F-F_max*0.5));
+F_50=MP1_F(ind);
+F_50=roundn(F_50,-2);
+T_50=MP1_T(ind);
+[F_25,ind]=min(abs(MP1_F-F_max*0.25));
+F_25=MP1_F(ind);
+F_25=roundn(F_25,-2);
+T_25=MP1_T(ind);
+end
